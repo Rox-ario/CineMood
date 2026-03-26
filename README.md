@@ -1,3 +1,7 @@
+Progetto di Rosario Chiappetta sviluppato durante l'**AI Week** indetto da **Develhope** nel mese di Marzo 2026. 
+
+--
+
 **CineMood** è un'esperienza cinematografica immersiva che trasforma le tue emozioni in visioni. Non è il solito motore di ricerca: è un curatore d'atmosfere basato sull'intelligenza artificiale che comprende il tuo stato d'animo e ti guida verso il film perfetto per la tua serata.
 
 ---
@@ -61,7 +65,6 @@ L'architettura, il design visivo e la logica di integrazione AI sono stati reali
    ```
 
 ---
-Sviluppato durante l'**AIWeek** indetto da **Develhope** nel mese di Marzo 2026.
 ## 📄 Licenza
 
 Distribuito sotto licenza Apache-2.0. Vedi `LICENSE` per maggiori dettagli.
