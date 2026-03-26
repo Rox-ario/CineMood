@@ -1,0 +1,5 @@
+{
+  "name": "CineMood",
+  "description": "Un'esperienza cinematografica immersiva che ti aiuta a scegliere il film perfetto in base al tuo stato d'animo.",
+  "requestFramePermissions": ["microphone"]
+}
