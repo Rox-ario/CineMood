@@ -1,6 +1,3 @@
-[![Vibe Coding](https://img.shields.app/badge/Built%20with-Vibe%20Coding-FF6321?style=for-the-badge)](https://ai.studio/build)
-[![Google AI Studio](https://img.shields.app/badge/Powered%20by-Google%20AI%20Studio-4285F4?style=for-the-badge&logo=google)](https://aistudio.google.com/)
-
 **CineMood** è un'esperienza cinematografica immersiva che trasforma le tue emozioni in visioni. Non è il solito motore di ricerca: è un curatore d'atmosfere basato sull'intelligenza artificiale che comprende il tuo stato d'animo e ti guida verso il film perfetto per la tua serata.
 
 ---
