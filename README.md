@@ -61,7 +61,7 @@ L'architettura, il design visivo e la logica di integrazione AI sono stati reali
    ```
 
 ---
-
+Sviluppato durante l'**AIWeek** indetto da **Develhope** nel mese di Marzo 2026.
 ## 📄 Licenza
 
 Distribuito sotto licenza Apache-2.0. Vedi `LICENSE` per maggiori dettagli.
