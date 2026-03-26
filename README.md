@@ -1,8 +1,11 @@
-Progetto di Rosario Chiappetta sviluppato durante l'**AI Week** indetto da **Develhope** nel mese di Marzo 2026. 
+# 🎬 CineMood: Perditi nel Cinema, Non nella Scelta
 
---
+[![Vibe Coding](https://img.shields.app/badge/Built%20with-Vibe%20Coding-FF6321?style=for-the-badge)](https://ai.studio/build)
+[![Google AI Studio](https://img.shields.app/badge/Powered%20by-Google%20AI%20Studio-4285F4?style=for-the-badge&logo=google)](https://aistudio.google.com/)
 
 **CineMood** è un'esperienza cinematografica immersiva che trasforma le tue emozioni in visioni. Non è il solito motore di ricerca: è un curatore d'atmosfere basato sull'intelligenza artificiale che comprende il tuo stato d'animo e ti guida verso il film perfetto per la tua serata.
+
+Sviluppato con passione durante l'**AIWeek** indetto da **Develhope** nel mese di Marzo 2026.
 
 ---
 
@@ -39,7 +42,7 @@ Dimentica lo scrolling infinito tra i cataloghi. Con CineMood, il viaggio inizia
 
 ## ⚡ Vibe Coding & AI Studio
 
-Questo progetto è un manifesto del **Vibe Coding**. È stato interamente concepito, progettato e sviluppato attraverso il linguaggio naturale all'interno di **Google AI Studio**. 
+Questo progetto è un manifesto del **Vibe Coding**. È stato interamente concepito, progettato e sviluppato attraverso il linguaggio naturale all'interno di **Google AI Studio** durante l'**AIWeek** di **Develhope** (Marzo 2026). 
 
 L'architettura, il design visivo e la logica di integrazione AI sono stati realizzati iterativamente, permettendo al "vibe" creativo di guidare lo sviluppo tecnico in tempo reale.
 
@@ -65,6 +68,7 @@ L'architettura, il design visivo e la logica di integrazione AI sono stati reali
    ```
 
 ---
+
 ## 📄 Licenza
 
 Distribuito sotto licenza Apache-2.0. Vedi `LICENSE` per maggiori dettagli.
@@ -72,4 +76,3 @@ Distribuito sotto licenza Apache-2.0. Vedi `LICENSE` per maggiori dettagli.
 ---
 
 *Creato con passione, intelligenza artificiale e buone vibrazioni.* 🍿✨
-

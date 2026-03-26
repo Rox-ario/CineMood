@@ -106,8 +106,8 @@ export default function App() {
         - plot: string (una breve trama avvincente del film)
         - reason: string (una frase evocativa che spiega perché è perfetto per questo mood)
         - link: string (un link diretto alla pagina del film sulla piattaforma)
-        - posterUrl: string (URL di un poster ufficiale del film)
-        - sceneUrls: string[] (un array di 4 URL di scene iconiche o still del film)
+        - posterUrl: string (URL DIRETTO all'immagine del poster. Deve terminare con .jpg, .png o .webp. Usa Google Search per trovare il link diretto all'immagine, non la pagina web.)
+        - sceneUrls: string[] (array di 4 URL DIRETTI a immagini di scene del film. Devono terminare con .jpg, .png o .webp.)
         - ratings: array di oggetti { source: string, score: number } (punteggi da testate come IMDb, Rotten Tomatoes, Metacritic, con score da 1 a 5)`,
         config: {
           responseMimeType: "application/json",
@@ -119,20 +119,30 @@ export default function App() {
       const data = (parsed.movies || []) as MovieRecommendation[];
       
       // Fallback for images and ratings
-      const enrichedData = data.map(movie => ({
-        ...movie,
-        plot: movie.plot || "Trama non disponibile.",
-        ratings: movie.ratings?.length ? movie.ratings : [
-          { source: "IMDb", score: 4.5 },
-          { source: "Rotten Tomatoes", score: 4.2 }
-        ],
-        posterUrl: movie.posterUrl || `https://picsum.photos/seed/${encodeURIComponent(movie.title)}/400/600`,
-        sceneUrls: movie.sceneUrls?.length ? movie.sceneUrls : [
-          `https://picsum.photos/seed/${encodeURIComponent(movie.title)}1/800/450`,
-          `https://picsum.photos/seed/${encodeURIComponent(movie.title)}2/800/450`,
-          `https://picsum.photos/seed/${encodeURIComponent(movie.title)}3/800/450`,
-        ]
-      }));
+      const enrichedData = data.map(movie => {
+        const posterUrl = movie.posterUrl && movie.posterUrl.startsWith('http')
+          ? `https://images.weserv.nl/?url=${encodeURIComponent(movie.posterUrl)}&w=600&h=900&fit=cover`
+          : `https://placehold.co/600x900/1a1a1a/ffffff?text=${encodeURIComponent(movie.title)}`;
+
+        const sceneUrls = movie.sceneUrls?.length 
+          ? movie.sceneUrls.map(url => url.startsWith('http') ? `https://images.weserv.nl/?url=${encodeURIComponent(url)}&w=1200&h=675&fit=cover` : `https://placehold.co/1200x675/1a1a1a/ffffff?text=Scene+Not+Found`)
+          : [
+            `https://placehold.co/1200x675/1a1a1a/ffffff?text=${encodeURIComponent(movie.title)}+1`,
+            `https://placehold.co/1200x675/1a1a1a/ffffff?text=${encodeURIComponent(movie.title)}+2`,
+            `https://placehold.co/1200x675/1a1a1a/ffffff?text=${encodeURIComponent(movie.title)}+3`,
+          ];
+
+        return {
+          ...movie,
+          plot: movie.plot || "Trama non disponibile.",
+          ratings: movie.ratings?.length ? movie.ratings : [
+            { source: "IMDb", score: 4.5 },
+            { source: "Rotten Tomatoes", score: 4.2 }
+          ],
+          posterUrl,
+          sceneUrls
+        };
+      });
 
       setRecommendations(enrichedData);
       setState('result');
@@ -535,12 +545,19 @@ function MovieCard({ movie, index }: { movie: MovieRecommendation; index: number
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                   {/* Poster Section (Left) */}
                   <div className="lg:col-span-4 space-y-8">
-                    <div className="relative aspect-[2/3] overflow-hidden rounded-[2.5rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] group">
+                    <div className="relative aspect-[2/3] overflow-hidden rounded-[2.5rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] group bg-white/5">
                       <img
                         src={movie.posterUrl}
                         alt={movie.title}
                         referrerPolicy="no-referrer"
+                        crossOrigin="anonymous"
                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          if (!target.src.includes('placehold.co')) {
+                            target.src = `https://placehold.co/600x900/1a1a1a/ffffff?text=${encodeURIComponent(movie.title)}`;
+                          }
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                     </div>
